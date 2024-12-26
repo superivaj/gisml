@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="gisml">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="source" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                        <xs:attribute name="type" type="xs:string" use="required"/>
+                        <xs:attribute name="url" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="layer" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="style">
+                                <xs:complexType>
+                                    <xs:attribute name="lineWidth" type="xs:decimal" use="optional"/>
+                                    <xs:attribute name="lineColor" type="xs:string" use="optional"/>
+                                    <xs:attribute name="fillColor" type="xs:string" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="index" type="xs:integer" use="required"/>
+                        <xs:attribute name="source" type="xs:string" use="required"/>
+                        <xs:attribute name="sourceLayer" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
