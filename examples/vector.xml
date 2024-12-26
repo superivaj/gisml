@@ -1,0 +1,21 @@
+<gisml>
+    <source id="mySource"
+            type="vector"
+            minZoom="1"
+            maxZoom="14">
+        <tile>https://s1.vectortiles.com/api/{x}/{y}/{z}.mvt</tile>
+        <tile>https://s2.vectortiles.com/api/{x}/{y}/{z}.mvt</tile>
+    </source>
+    <layer zIndex="1" source="mySource" sourceLayer="contour">
+        <style lineWidth="4"
+               lineColor="#ff00ff"
+               fillColor="#ff0000">
+        </style>
+    </layer>
+    <layer zIndex="2" source="mySource" sourceLayer="buildings">
+        <style lineWidth="1"
+               lineColor="#0000ff"
+               fillColor="#ffaa00">
+        </style>
+    </layer>
+</gisml>
