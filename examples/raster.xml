@@ -7,4 +7,8 @@
         <tile>https://s2.rastertiles.com/api/{x}/{y}/{z}.png</tile>
     </source>
     <layer zIndex="1" source="mySource" />
+	<legend index="0" title="Value legend">
+		<entry label="Bad" colour="#ff0000" />
+		<entry label="Good" colour="#00ff00" />
+	</legend>
 </gisml>
