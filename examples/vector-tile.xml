@@ -1,0 +1,9 @@
+<gisml>
+    <source id="mySource" type="vector" url="https://www.vectortiles.com/api/{x}/{y}/{z}"/>
+    <layer index="5" source="mySource" sourceLayer="contour">
+        <style lineWidth="4"
+               lineColor="#ff00ff"
+               fillColor="#ff0000">
+        </style>
+    </layer>
+</gisml>
