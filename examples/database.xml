@@ -1,0 +1,32 @@
+<gisml>
+    <source id="mySource"
+            type="database">
+        <table minZoom="0">sites-overview</table>
+        <table minZoom="6">sites</table>
+        <table minZoom="10">cells4g</table>
+    </source>
+    <layer zIndex="1" source="mySource" sourceLayer="sites-overview">
+        <style pointCircleRadius="2"
+               pointCircleColor="#ff00ff">
+			<pointCircleColor>
+				<match field="technology">
+					<case value="2g">#ff0000</case>
+					<case value="3g">#ffff00</case>
+					<case value="4g">#00ff00</case>
+				</match>
+			</pointCircleColor>
+		</style>
+    </layer>
+    <layer zIndex="2" source="mySource" sourceLayer="cells4g">
+        <style pointSectorInnerRadius="4"
+               pointSectorOuterRadius="8">
+			<pointSectorRotation>
+				<get field="azimuth" />
+			</pointSectorRotation>
+		</style>
+    </layer>
+	<legend index="0" title="Value legend">
+		<entry label="Bad" colour="#ff0000" />
+		<entry label="Good" colour="#00ff00" />
+	</legend>
+</gisml>
