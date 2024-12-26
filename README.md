@@ -23,4 +23,4 @@ This document specifies an encoding format for the description of the presentati
 
 ## 2. Format
 
-The GISML specification uses XML as the encoding format with a schema [definition](schema.wsd).
+The GISML specification uses XML as the encoding format with a schema [definition](schema.xsd).
