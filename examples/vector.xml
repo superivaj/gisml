@@ -15,7 +15,7 @@
                lineColor="#0000ff"
                fillColor="#ffaa00" />
     </layer>
-    <layer zIndex="2" source="mySource" sourceLayer="hospitals">
+    <layer zIndex="3" source="mySource" sourceLayer="hospitals">
         <style point-icon="hospital" />
     </layer>
 	<legend index="0" title="Value legend">
