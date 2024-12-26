@@ -1,0 +1,10 @@
+<gisml>
+    <source id="mySource"
+            type="raster"
+            minZoom="1"
+            maxZoom="14">
+        <tile>https://s1.rastertiles.com/api/{x}/{y}/{z}.png</tile>
+        <tile>https://s2.rastertiles.com/api/{x}/{y}/{z}.png</tile>
+    </source>
+    <layer zIndex="1" source="mySource" />
+</gisml>
