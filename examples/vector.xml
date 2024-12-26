@@ -8,14 +8,18 @@
     </source>
     <layer zIndex="1" source="mySource" sourceLayer="contour">
         <style lineWidth="4"
-               lineColor="#ff00ff"
-               fillColor="#ff0000">
-        </style>
+               lineColor="#ff00ff" />
     </layer>
     <layer zIndex="2" source="mySource" sourceLayer="buildings">
         <style lineWidth="1"
                lineColor="#0000ff"
-               fillColor="#ffaa00">
-        </style>
+               fillColor="#ffaa00" />
     </layer>
+    <layer zIndex="2" source="mySource" sourceLayer="hospitals">
+        <style point-icon="hospital" />
+    </layer>
+	<legend index="0" title="Value legend">
+		<entry label="Bad" colour="#ff0000" />
+		<entry label="Good" colour="#00ff00" />
+	</legend>
 </gisml>
