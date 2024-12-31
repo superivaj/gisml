@@ -1,13 +1,21 @@
 <gisml>
-    <source id="mySource"
-            type="database">
-        <table minZoom="0">sites-overview</table>
-        <table minZoom="6">sites</table>
-        <table minZoom="10">cells4g</table>
+    <source id="sites-overview" type="database" minZoom="0" maxZoom="6">
+		<filter>
+			<table name="sites-overview" />
+			<equal>
+				<get field="test" />
+				<constant value="1" />
+			</equal>
+		</filter>
     </source>
-    <layer zIndex="1" source="mySource" sourceLayer="sites-overview">
-        <style pointCircleRadius="2"
-               pointCircleColor="#ff00ff">
+    <source id="sites" type="database" minZoom="6">
+		<table name="sites" />
+    </source>
+    <source id="cells4g" type="database" minZoom="10">
+		<table name="cells4g" />
+    </source>
+    <layer zIndex="1" source="sites-overview">
+        <style pointCircleRadius="2">
             <pointCircleColor>
                 <match field="technology">
                     <case value="2g">#ff0000</case>
@@ -17,7 +25,7 @@
             </pointCircleColor>
         </style>
     </layer>
-    <layer zIndex="2" source="mySource" sourceLayer="cells4g">
+    <layer zIndex="2" source="sites">
         <style pointSectorInnerRadius="4"
                pointSectorOuterRadius="8">
             <pointSectorRotation>
