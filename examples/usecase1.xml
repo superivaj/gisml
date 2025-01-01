@@ -51,7 +51,7 @@
     </layer>
     
     <!-- Draw legend -->
-    <legend index="0" title="Sectors">
+    <legend title="Sectors">
         <entry label="Bad" colour="#ff0000" />
         <entry label="Good" colour="#00ff00" />
     </legend>
