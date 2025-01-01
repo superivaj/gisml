@@ -1,0 +1,58 @@
+<!-- Usecase 1: Display sectors with DCR OSS KPI greater than 1% -->
+<!-- The system will analyze the design, pre-calculate all the data into the necessary precalculated tables 
+     and draw it by serving vector tiles. -->
+<!-- The system could register the dependencies of the calculations and refresh them if the records of any
+     of the source tables are updated -->
+<gisml>
+	<!-- Get sites for dots -->
+    <source id="sites" type="database">
+		<table name="sites" />
+    </source>
+	
+	<!-- Get breached sectors -->
+    <source id="cells" type="database">
+		<filter>
+			<compare type="greater">
+				<get field="dcr" />
+				<constant value="1" />
+			</compare>
+			<join field1="CellID" field2="CellID">
+				<table name="cells4g" />
+				<group>
+					<table name="osskpi4g" />
+					<by field="CellID" />
+					<aggregate field="dcr" type="latest" />
+				</group>
+			</join>
+		</filter>
+    </source>
+	
+	<!-- Draw sites -->
+    <layer source="sites">
+        <style pointCircleRadius="2">
+            <pointCircleColor>
+                <match field="technology">
+                    <case value="2g">#ff0000</case>
+                    <case value="3g">#ffff00</case>
+                    <case value="4g">#00ff00</case>
+                </match>
+            </pointCircleColor>
+        </style>
+    </layer>
+	
+	<!-- Draw sectors -->
+    <layer source="cells">
+        <style pointSectorInnerRadius="4"
+               pointSectorOuterRadius="8">
+            <pointSectorRotation>
+                <get field="azimuth" />
+            </pointSectorRotation>
+        </style>
+    </layer>
+	
+	<!-- Draw legend -->
+    <legend index="0" title="Sectors">
+        <entry label="Bad" colour="#ff0000" />
+        <entry label="Good" colour="#00ff00" />
+    </legend>
+</gisml>
